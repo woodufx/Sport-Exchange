@@ -21,20 +21,28 @@ class CategoryList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Category(
-                categoryName: 'Бег',
-                categoryIcon: Icons.directions_run_outlined,
-                onPressed: () {},
+              Expanded(
+                child: Category(
+                  categoryName: 'Бег',
+                  categoryIcon: Icons.directions_run_outlined,
+                  onPressed: () {},
+                ),
               ),
-              Category(
-                categoryName: 'Футбол',
-                categoryIcon: Icons.sports_soccer_outlined,
-                onPressed: () {},
+              SizedBox(width: 16),
+              Expanded(
+                child: Category(
+                  categoryName: 'Футбол',
+                  categoryIcon: Icons.sports_soccer_outlined,
+                  onPressed: () {},
+                ),
               ),
-              Category(
-                categoryName: 'Стрит',
-                categoryIcon: Icons.signpost_outlined,
-                onPressed: () {},
+              SizedBox(width: 16),
+              Expanded(
+                child: Category(
+                  categoryName: 'Стрит',
+                  categoryIcon: Icons.signpost_outlined,
+                  onPressed: () {},
+                ),
               ),
             ],
           )

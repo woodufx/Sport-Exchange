@@ -8,45 +8,39 @@ class ForYouList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Товары для тебя'.toUpperCase(),
-            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  fontSize: 20,
-                ),
-          ),
-          const SizedBox(height: 16),
-          const Wrap(
-            direction: Axis.horizontal,
-            spacing: 35.0,
-            runSpacing: 16.0,
-            children: [
-              ShopCard(
-                productName: 'AIR LEGGING SPORT',
-                categoryName: 'Бег',
-                price: 32000,
-                imageUrl:
-                    'https://static.cdek.shopping/images/shopping/9e461426eaab41f9b2d4dc739870b6e6.jpg',
+      child: Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Товары для тебя'.toUpperCase(),
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                    fontSize: 20,
+                  ),
+            ),
+            const SizedBox(height: 16),
+            GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16.0,
+                mainAxisSpacing: 16.0,
+                childAspectRatio: 0.58,
               ),
-              ShopCard(
-                productName: 'AIR LEGGING SPORT',
-                categoryName: 'Бег',
-                price: 32000,
-                imageUrl:
-                    'https://static.cdek.shopping/images/shopping/9e461426eaab41f9b2d4dc739870b6e6.jpg',
-              ),
-              ShopCard(
-                productName: 'AIR LEGGING SPORT',
-                categoryName: 'Бег',
-                price: 32000,
-                imageUrl:
-                    'https://static.cdek.shopping/images/shopping/9e461426eaab41f9b2d4dc739870b6e6.jpg',
-              ),
-            ],
-          )
-        ],
+              itemCount: 9,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, index) {
+                return const ShopCard(
+                  productName: 'AIR LEGGING SPORT',
+                  categoryName: 'Бег с препятствиями',
+                  price: 32000,
+                  imageUrl:
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbNeTvvK1nAMqoyONiuaQV-8VSCDvpZfGGg&usqp=CAU',
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

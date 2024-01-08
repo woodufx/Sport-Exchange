@@ -21,7 +21,6 @@ class Category extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         height: 103,
-        width: 108,
         decoration: BoxDecoration(
           color: AppColors.backgroundGray,
           borderRadius: BorderRadius.circular(10),

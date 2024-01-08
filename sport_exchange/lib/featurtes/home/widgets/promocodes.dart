@@ -5,6 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/home/widgets/promocodes/first_promocode.dart';
 import 'package:sport_exchange/featurtes/home/widgets/promocodes/second_promocode.dart';
+import 'package:sport_exchange/helpers/mouse_dragable.dart';
 
 class Promocodes extends StatelessWidget {
   final _controller = PageController(viewportFraction: 0.7);
@@ -20,13 +21,16 @@ class Promocodes extends StatelessWidget {
         children: [
           SizedBox(
             height: 100,
-            child: PageView(
-              padEnds: false,
-              controller: _controller,
-              children: const [
-                FirstBanner(),
-                SecondBanner(),
-              ],
+            child: ScrollConfiguration(
+              behavior: MouseDraggableScrollBehavior(),
+              child: PageView(
+                padEnds: false,
+                controller: _controller,
+                children: const [
+                  FirstBanner(),
+                  SecondBanner(),
+                ],
+              ),
             ),
           ),
           SizedBox(height: 10),

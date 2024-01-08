@@ -25,7 +25,7 @@ class UserBalance extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: IntrinsicHeight(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
