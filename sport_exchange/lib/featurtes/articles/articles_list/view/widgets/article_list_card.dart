@@ -15,14 +15,12 @@ class ArticleListCard extends StatelessWidget {
       onTap: () => {
         AutoRouter.of(context).push(ArticleRoute(
             article: Article(
-                articleId: 1,
+                articleId: article.articleId,
                 categories: ['Сила воли', 'Удобные кроссовки', 'Спорт', 'Бег'],
-                date: '2 января 2023',
-                name: 'Running: Incredible Benefits for Body and Mind',
-                text:
-                    'Running is one of the simplest and most accessible forms of exercise that can be done almost anywhere and anytime. Not only that, but running also offers incredible benefits for both the body and the mind. In this article, we will discuss various benefits of running, tips for beginners, and how you can start your own running journey. Running is one of the simplest and most accessible forms of exercise that can be done almost anywhere and anytime. Not only that, but running also offers incredible benefits for both the body and the mind. In this article, we will discuss various benefits of running, tips for beginners, and how you can start your own running journey.',
-                imageUrl:
-                    'https://www.kant.ru/upload/img/articles/22_begdidgest.jpg')))
+                date: article.date,
+                name: article.name,
+                text: article.text,
+                imageUrl: article.imageUrl)))
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

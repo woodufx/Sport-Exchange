@@ -1,5 +1,5 @@
 class Article {
-  final int articleId;
+  final String articleId;
   final String name;
   final String text;
   final String date;
