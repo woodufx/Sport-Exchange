@@ -28,7 +28,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: LoginRoute.page, path: '/login'),
         AutoRoute(page: ArticleRoute.page, path: '/article'),
         AutoRoute(page: ShopItemRoute.page, path: '/shop-item'),
-        AutoRoute(page: ShopListRoute.page, path: '/shopl-list'),
+        AutoRoute(page: ShopListRoute.page, path: '/shop-list'),
         AutoRoute(page: WishlistRoute.page, path: '/wish-list'),
       ];
 }

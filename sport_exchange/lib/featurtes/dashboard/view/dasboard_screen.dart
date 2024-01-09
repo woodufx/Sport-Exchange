@@ -13,7 +13,7 @@ class DashboardScreen extends StatelessWidget {
     return AutoTabsRouter.tabBar(
         routes: const [
           MainRoute(),
-          ShopItemRoute(),
+          TransactionsRoute(),
           ArticlesListRoute(),
           ProfileRoute(),
         ],

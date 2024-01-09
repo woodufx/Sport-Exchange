@@ -9,15 +9,18 @@ class SizeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      constraints: const BoxConstraints(minWidth: 74, maxWidth: 90),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(6),
         border: Border.all(color: AppColors.primaryOrange, width: 1),
       ),
-      padding: const EdgeInsets.all(8),
-      child: Text(
-        size,
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: AppColors.primaryOrange, fontWeight: FontWeight.w300),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+      child: Center(
+        child: Text(
+          size,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              color: AppColors.primaryOrange, fontWeight: FontWeight.w400),
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:sport_exchange/constants/app_colors.dart';
+import 'package:sport_exchange/featurtes/shop/shop_item/widgets/product_header.dart';
+import 'package:sport_exchange/router/router.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
@@ -18,6 +20,7 @@ class ShopCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () => {AutoRouter.of(context).pushNamed('/shop-item')},
       borderRadius: BorderRadius.circular(10),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         ClipRRect(
@@ -33,27 +36,8 @@ class ShopCard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        Text(
-          productName,
-          style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                fontSize: 16,
-              ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          categoryName,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                fontSize: 12,
-              ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          price.toString(),
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              fontSize: 14,
-              color: AppColors.primaryOrange,
-              fontWeight: FontWeight.w600),
-        ),
+        ProductHeader(
+            productName: productName, categoryName: categoryName, price: price),
       ]),
     );
   }

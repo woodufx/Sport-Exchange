@@ -5,45 +5,49 @@ import 'package:sport_exchange/featurtes/shop/shop_item/widgets/product_image.da
 import 'package:sport_exchange/helpers/mouse_dragable.dart';
 
 class ImageCarousel extends StatelessWidget {
- ImageCarousel({ Key? key, required this.imageUrls }) : super(key: key);
+  ImageCarousel({Key? key, required this.imageUrls}) : super(key: key);
   final _controller = PageController();
   final List<String> imageUrls;
 
   @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: SizedBox(
             height: 230,
             child: ScrollConfiguration(
               behavior: MouseDraggableScrollBehavior(),
               child: PageView(
-                padEnds: false,
-                controller: _controller,
-                children: List.generate(imageUrls.length, (index) => ProductImage(imageUrl: imageUrls[index],))
-              ),
+                  padEnds: false,
+                  controller: _controller,
+                  children: List.generate(
+                      imageUrls.length,
+                      (index) => ProductImage(
+                            imageUrl: imageUrls[index],
+                          ))),
             ),
           ),
-          const SizedBox(height: 10),
-          SmoothPageIndicator(
-            controller: _controller,
-            count: imageUrls.length,
-            effect: const ExpandingDotsEffect(
-              activeDotColor: AppColors.primaryOrange,
-              dotColor: AppColors.dotInactiveColor,
-              dotHeight: 5,
-              dotWidth: 5,
-              expansionFactor: 3,
-              spacing: 3,
-              offset: 10,
-              strokeWidth: 40,
-            ),
+        ),
+        const SizedBox(height: 10),
+        SmoothPageIndicator(
+          controller: _controller,
+          count: imageUrls.length,
+          effect: const ExpandingDotsEffect(
+            activeDotColor: AppColors.primaryOrange,
+            dotColor: AppColors.dotInactiveColor,
+            dotHeight: 5,
+            dotWidth: 5,
+            expansionFactor: 3,
+            spacing: 3,
+            offset: 10,
+            strokeWidth: 40,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
