@@ -1,8 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/featurtes/shop/shop_item/widgets/shop_card.dart';
+import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
 
-class ForYouList extends StatelessWidget {
+class ForYouList extends StatefulWidget {
   const ForYouList({Key? key}) : super(key: key);
+
+  @override
+  State<ForYouList> createState() => _ForYouListState();
+}
+
+class _ForYouListState extends State<ForYouList> {
+  @override
+  void initState() {
+
+    BlocProvider.of<ShopItemListBloc>(context).add(const ShopItemListGetEvent(searchQuery: ''));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,26 +32,35 @@ class ForYouList extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 16),
-          GridView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16.0,
-              mainAxisSpacing: 16.0,
-              childAspectRatio: 0.58,
-            ),
-            itemCount: 9,
-            shrinkWrap: true,
-            itemBuilder: (BuildContext context, index) {
-              return const ShopCard(
-                productName: 'AIR LEGGING SPORT',
-                categoryName: 'Бег с препятствиями',
-                price: 32000,
-                imageUrl:
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQbNeTvvK1nAMqoyONiuaQV-8VSCDvpZfGGg&usqp=CAU',
+          BlocBuilder<ShopItemListBloc, ShopItemListState>(
+              builder: (context, state) {
+            if (state is ShopItemListLoaded) {
+              final products = state.products.content;
+              return GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                  childAspectRatio: 0.58,
+                ),
+                itemCount: products.length,
+                shrinkWrap: true,
+                itemBuilder: (BuildContext context, index) {
+                  return ShopCard(
+                    productName: products[index].name,
+                    categoryName: products[index].category.toString(),
+                    price: products[index].price,
+                    imageUrls: products[index].pictureUrls,
+                  );
+                },
               );
-            },
-          ),
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
         ],
       ),
     );

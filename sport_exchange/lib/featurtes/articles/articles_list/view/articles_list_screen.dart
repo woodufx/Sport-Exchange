@@ -17,7 +17,7 @@ class ArticlesListScreen extends StatefulWidget {
 class _ArticlesListScreenState extends State<ArticlesListScreen> {
   @override
   void initState() {
-    BlocProvider.of<ArticleListBloc>(context).add(ArticleGetListEvent());
+    BlocProvider.of<ArticleListBloc>(context).add(ArticleListGetEvent());
     super.initState();
   }
 
@@ -38,7 +38,7 @@ class _ArticlesListScreenState extends State<ArticlesListScreen> {
                           name: articles[index].name,
                           date: articles[index].createdAt,
                           imageUrl: articles[index].pictureUrl,
-                          categories: [],
+                          categories: articles[index].categories,
                           text: articles[index].text,
                           articleId: articles[index].id)),
                   const SizedBox(height: 16),

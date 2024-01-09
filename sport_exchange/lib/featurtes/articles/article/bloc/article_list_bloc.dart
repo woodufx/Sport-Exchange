@@ -12,11 +12,11 @@ part 'article_list_state.dart';
 
 class ArticleListBloc extends Bloc<ArticleListEvent, ArticleListState> {
   ArticleListBloc({required this.restClient}) : super(ArticleListInitial()) {
-    on<ArticleGetListEvent>(_onArticles);
+    on<ArticleListGetEvent>(_onArticles);
   }
 
   FutureOr<void> _onArticles(
-    ArticleGetListEvent event,
+    ArticleListGetEvent event,
     Emitter<ArticleListState> emit,
   ) async {
     try {

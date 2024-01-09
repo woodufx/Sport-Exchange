@@ -4,7 +4,7 @@ import 'package:sport_exchange/constants/app_colors.dart';
 class ArticleCategory extends StatelessWidget {
   const ArticleCategory({Key? key, required this.name}) : super(key: key);
 
-  final String name;
+  final int name;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ArticleCategory extends StatelessWidget {
         color: AppColors.secondaryOrange,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Text(name,
+      child: Text(name.toString(),
           style: Theme.of(context)
               .textTheme
               .bodyMedium

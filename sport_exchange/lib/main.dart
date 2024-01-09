@@ -1,7 +1,8 @@
-import "package:flutter_bloc/flutter_bloc.dart";
 import 'package:flutter/material.dart';
+import "package:flutter_bloc/flutter_bloc.dart";
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/featurtes/articles/article/bloc/article_list_bloc.dart';
+import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
 import 'package:sport_exchange/router/router.dart';
 import 'package:sport_exchange/theme/theme.dart';
 
@@ -21,8 +22,18 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ArticleListBloc(restClient: initRestClient()),
+    final restClient = initRestClient();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ArticleListBloc>(
+          create: (BuildContext context) =>
+              ArticleListBloc(restClient: restClient),
+        ),
+        BlocProvider<ShopItemListBloc>(
+          create: (BuildContext context) =>
+              ShopItemListBloc(restClient: restClient),
+        ),
+      ],
       child: MaterialApp.router(
         title: 'Sport exchange',
         theme: mainTheme,

@@ -16,7 +16,7 @@ class ArticleListCard extends StatelessWidget {
         AutoRouter.of(context).push(ArticleRoute(
             article: Article(
                 articleId: article.articleId,
-                categories: ['Сила воли', 'Удобные кроссовки', 'Спорт', 'Бег'],
+                categories: article.categories,
                 date: article.date,
                 name: article.name,
                 text: article.text,

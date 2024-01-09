@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_exchange/featurtes/shop/shop_item/widgets/product_header.dart';
-import 'package:sport_exchange/router/router.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
@@ -9,13 +8,13 @@ class ShopCard extends StatelessWidget {
     required this.productName,
     required this.categoryName,
     required this.price,
-    required this.imageUrl,
+    required this.imageUrls,
   }) : super(key: key);
 
   final String productName;
   final String categoryName;
   final int price;
-  final String imageUrl;
+  final List<String> imageUrls;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class ShopCard extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: 1.64 / 2,
             child: Image.network(
-              imageUrl,
+              imageUrls[0],
               fit: BoxFit.cover,
               height: 200,
               width: 164,

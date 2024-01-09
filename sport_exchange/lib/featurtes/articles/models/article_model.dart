@@ -4,7 +4,7 @@ class Article {
   final String text;
   final String date;
   final String imageUrl;
-  final List<String> categories;
+  final List<int> categories;
 
   Article({
     required this.articleId,

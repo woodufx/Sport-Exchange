@@ -11,7 +11,7 @@ class ArticleHeader extends StatelessWidget {
 
   final String name;
   final String date;
-  final List<String> categories;
+  final List<int> categories;
 
   @override
   Widget build(BuildContext context) {

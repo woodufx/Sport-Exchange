@@ -12,7 +12,10 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET('/products')
-  Future<ContentModel<List<ProductModel>>> getProducts();
+  Future<ContentModel<List<ProductModel>>> getProducts(@Queries() Map<String, String> queries);
+
+  @GET('/products')
+  Future<ContentModel<List<ProductModel>>> getProductsWithoutParameters();
 
   @GET('/articles')
   Future<ContentModel<List<ArticleModel>>> getArticles();

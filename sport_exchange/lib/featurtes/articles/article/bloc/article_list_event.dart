@@ -7,7 +7,7 @@ abstract class ArticleListEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class ArticleGetListEvent extends ArticleListEvent {
+class ArticleListGetEvent extends ArticleListEvent {
 
   @override
   List<Object> get props => super.props..addAll([]);
