@@ -26,8 +26,8 @@ class Promocodes extends StatelessWidget {
                 padEnds: false,
                 controller: _controller,
                 children: const [
-                  FirstBanner(imagePath: 'assets/first-banner.png'),
-                  FirstBanner(imagePath: 'assets/second-banner.png'),
+                  PromocodeBanner(imagePath: 'assets/first-banner.png'),
+                  PromocodeBanner(imagePath: 'assets/second-banner.png'),
                 ],
               ),
             ),

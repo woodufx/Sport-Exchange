@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class FirstBanner extends StatelessWidget {
+class PromocodeBanner extends StatelessWidget {
   final String imagePath;
 
-  const FirstBanner({Key? key, required this.imagePath}) : super(key: key);
+  const PromocodeBanner({Key? key, required this.imagePath}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
