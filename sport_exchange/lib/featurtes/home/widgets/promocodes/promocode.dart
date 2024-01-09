@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class PromoCodeBanner extends StatelessWidget {
   final String imagePath;
-  final bool isFirst;
+  final EdgeInsets edgeInset;
 
   const PromoCodeBanner({
     Key? key,
     required this.imagePath,
-    required this.isFirst,
+    this.edgeInset = const EdgeInsets.only(right: 6),
   }) : super(key: key);
 
   @override
@@ -15,9 +15,7 @@ class PromoCodeBanner extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
-        padding: isFirst
-            ? const EdgeInsets.fromLTRB(24, 0, 8, 0)
-            : const EdgeInsets.only(right: 24),
+        padding: edgeInset,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
