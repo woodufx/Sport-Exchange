@@ -1,4 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:sport_exchange/common/widgets/image_wrapper.dart';
+import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
+import 'package:sport_exchange/router/router.dart';
 
 class ArticleListCard extends StatelessWidget {
   const ArticleListCard({Key? key, required this.article}) : super(key: key);
@@ -8,22 +12,24 @@ class ArticleListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
-      onTap: () => {},
+      onTap: () => {
+        AutoRouter.of(context).push(ArticleRoute(
+            article: Article(
+                articleId: 1,
+                categories: ['Сила воли', 'Удобные кроссовки', 'Спорт', 'Бег'],
+                date: '2 января 2023',
+                name: 'Running: Incredible Benefits for Body and Mind',
+                text:
+                    'Running is one of the simplest and most accessible forms of exercise that can be done almost anywhere and anytime. Not only that, but running also offers incredible benefits for both the body and the mind. In this article, we will discuss various benefits of running, tips for beginners, and how you can start your own running journey. Running is one of the simplest and most accessible forms of exercise that can be done almost anywhere and anytime. Not only that, but running also offers incredible benefits for both the body and the mind. In this article, we will discuss various benefits of running, tips for beginners, and how you can start your own running journey.',
+                imageUrl:
+                    'https://www.kant.ru/upload/img/articles/22_begdidgest.jpg')))
+      },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: AspectRatio(
-                aspectRatio: 1.8,
-                child: Image.network(
-                  article.url,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
+            child: ImageWrapper(aspectRatio: 1.8, imageUrl: article.imageUrl),
           ),
           const SizedBox(
             width: 16,
@@ -53,19 +59,4 @@ class ArticleListCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class Article {
-  final int id;
-  final String name;
-  final String date;
-  final String text;
-  final String url;
-
-  Article(
-      {required this.id,
-      required this.name,
-      required this.date,
-      required this.text,
-      required this.url});
 }

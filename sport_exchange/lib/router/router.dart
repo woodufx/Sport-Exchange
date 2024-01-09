@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:sport_exchange/featurtes/articles/article/view/article_screen.dart';
 import 'package:sport_exchange/featurtes/articles/articles_list/view/articles_list_screen.dart';
+import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
 import 'package:sport_exchange/featurtes/dashboard/view/dasboard_screen.dart';
 import 'package:sport_exchange/featurtes/home/view/main_screen.dart';
 import 'package:sport_exchange/featurtes/login/view/login_screen.dart';

@@ -35,4 +35,5 @@ final mainTheme = ThemeData(
           fontSize: 15,
           fontWeight: FontWeight.w400,
           color: AppColors.mainTextGray,
+          height: 1.6,
         )));

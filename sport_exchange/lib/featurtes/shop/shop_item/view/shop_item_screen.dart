@@ -15,6 +15,7 @@ class ShopItemScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: AppColors.white,
+        backgroundColor: AppColors.white,
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
