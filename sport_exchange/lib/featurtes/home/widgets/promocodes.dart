@@ -28,10 +28,10 @@ class Promocodes extends StatelessWidget {
                 children: const [
                   PromoCodeBanner(
                       imagePath: 'assets/first-banner.png',
-                      edgeInset: EdgeInsets.fromLTRB(24, 0, 8, 0)),
+                      padding: EdgeInsets.fromLTRB(24, 0, 8, 0)),
                   PromoCodeBanner(
                       imagePath: 'assets/second-banner.png',
-                      edgeInset: EdgeInsets.only(right: 24)),
+                      padding: EdgeInsets.only(right: 24)),
                 ],
               ),
             ),
