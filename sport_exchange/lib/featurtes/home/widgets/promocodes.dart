@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
-import 'package:sport_exchange/featurtes/home/widgets/promocodes/first_promocode.dart';
-import 'package:sport_exchange/featurtes/home/widgets/promocodes/second_promocode.dart';
+import 'package:sport_exchange/featurtes/home/widgets/promocodes/promocode.dart';
 import 'package:sport_exchange/helpers/mouse_dragable.dart';
 
 class Promocodes extends StatelessWidget {
@@ -27,8 +26,8 @@ class Promocodes extends StatelessWidget {
                 padEnds: false,
                 controller: _controller,
                 children: const [
-                  FirstBanner(),
-                  SecondBanner(),
+                  FirstBanner(imagePath: 'assets/first-banner.png'),
+                  FirstBanner(imagePath: 'assets/second-banner.png'),
                 ],
               ),
             ),
