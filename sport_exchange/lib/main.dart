@@ -5,9 +5,12 @@ import 'package:sport_exchange/featurtes/articles/bloc/article_list_bloc.dart';
 import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
 import 'package:sport_exchange/router/router.dart';
 import 'package:sport_exchange/theme/theme.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
+  initializeDateFormatting('ru', null).then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatefulWidget {

@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:sport_exchange/common/widgets/image_wrapper.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
@@ -23,7 +24,8 @@ class ArticleScreen extends StatelessWidget {
           children: [
             ArticleHeader(
                 name: article.name,
-                date: article.date,
+                date: DateFormat('d MMMM, yyyy', 'ru')
+                    .format(DateTime.parse(article.date)),
                 categories: article.categories),
             const SizedBox(height: 16),
             ImageWrapper(

@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'article_model.g.dart';
 
 @JsonSerializable()
-class ArticleModel {
+class ArticleModel extends Equatable {
   final String id;
   final String name;
   final String text;
@@ -24,4 +25,7 @@ class ArticleModel {
       _$ArticleModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ArticleModelToJson(this);
+
+  @override
+  List<Object> get props => [id, name, text, createdAt, pictureUrl, categories];
 }

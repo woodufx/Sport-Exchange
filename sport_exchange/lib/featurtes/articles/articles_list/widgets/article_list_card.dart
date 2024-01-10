@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_exchange/common/widgets/image_wrapper.dart';
 import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
 import 'package:sport_exchange/router/router.dart';
+import 'package:intl/intl.dart';
 
 class ArticleListCard extends StatelessWidget {
   const ArticleListCard({Key? key, required this.article}) : super(key: key);
@@ -38,7 +39,8 @@ class ArticleListCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  article.date,
+                  DateFormat('d MMMM, yyyy', 'ru')
+                      .format(DateTime.parse(article.date)),
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontSize: 12,
                       ),

@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/content_model.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
 
 part 'shop_item_list_event.dart';
-
 part 'shop_item_list_state.dart';
 
 class ShopItemListBloc extends Bloc<ShopItemListEvent, ShopItemListState> {
@@ -21,15 +20,10 @@ class ShopItemListBloc extends Bloc<ShopItemListEvent, ShopItemListState> {
   ) async {
     try {
       emit(ShopItemListLoading());
-
       final ContentModel<List<ProductModel>> products;
-      if (event.searchQuery.trim().isEmpty) {
-        products = await restClient.getProductsWithoutParameters();
-      } else {
-        products =
-            await restClient.getProducts({'searchQuery': event.searchQuery});
-      }
-
+      products = event.searchQuery.trim().isEmpty == true
+          ? await restClient.getProductsWithoutParameters()
+          : await restClient.getProducts({'searchQuery': event.searchQuery});
       emit(ShopItemListLoaded(products));
     } catch (e) {
       emit(ShopItemListFailure(e));
