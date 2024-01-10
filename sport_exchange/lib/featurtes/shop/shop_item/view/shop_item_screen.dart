@@ -2,10 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
-import 'package:sport_exchange/featurtes/shop/shop_item/widgets/bottom_button.dart';
-import 'package:sport_exchange/featurtes/shop/shop_item/widgets/image_carousel.dart';
-import 'package:sport_exchange/featurtes/shop/shop_item/widgets/product_header.dart';
-import 'package:sport_exchange/featurtes/shop/shop_item/widgets/size_card.dart';
+import '/featurtes/shop/shop_item/widgets/widgets.dart';
 
 @RoutePage()
 class ShopItemScreen extends StatelessWidget {
@@ -39,8 +36,7 @@ class ShopItemScreen extends StatelessWidget {
           Wrap(
               spacing: 16,
               runSpacing: 10,
-              children:
-              product.sizes.map((e) =>SizeCard(size: e)).toList()),
+              children: product.sizes.map((e) => SizeCard(size: e)).toList()),
           const SizedBox(height: 24),
           BottomButton(
             onAddToCardPressed: () => {},

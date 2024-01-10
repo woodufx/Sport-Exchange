@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sport_exchange/featurtes/home/widgets/widget.dart';
+import 'package:sport_exchange/featurtes/home/widgets/home_categories/category.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class CategoryList extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Expanded(
                 child: Category(
                   categoryName: 'Футбол',
@@ -36,7 +36,7 @@ class CategoryList extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Expanded(
                 child: Category(
                   categoryName: 'Стрит',

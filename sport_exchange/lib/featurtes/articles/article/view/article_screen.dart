@@ -2,8 +2,8 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:sport_exchange/common/widgets/image_wrapper.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
-import 'package:sport_exchange/featurtes/articles/article/widgets/article_header.dart';
 import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
+import '/featurtes/articles/article/widgets/widgets.dart';
 
 @RoutePage()
 class ArticleScreen extends StatelessWidget {

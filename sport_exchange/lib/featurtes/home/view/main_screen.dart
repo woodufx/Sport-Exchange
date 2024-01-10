@@ -1,10 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:sport_exchange/featurtes/home/widgets/category_list.dart';
-import 'package:sport_exchange/featurtes/home/widgets/for_you_list.dart';
-import 'package:sport_exchange/featurtes/home/widgets/promocodes.dart';
-import 'package:sport_exchange/featurtes/home/widgets/search.dart';
-import 'package:sport_exchange/featurtes/home/widgets/user_balance.dart';
+import '/featurtes/home/widgets/widget.dart';
 
 @RoutePage()
 class MainScreen extends StatelessWidget {
