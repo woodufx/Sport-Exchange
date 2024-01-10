@@ -12,7 +12,8 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET('/products')
-  Future<ContentModel<List<ProductModel>>> getProducts(@Queries() Map<String, String> queries);
+  Future<ContentModel<List<ProductModel>>> getProducts(
+      @Queries() Map<String, String> queries);
 
   @GET('/products')
   Future<ContentModel<List<ProductModel>>> getProductsWithoutParameters();
@@ -23,6 +24,7 @@ abstract class RestClient {
 
 RestClient initRestClient() {
   final dio = Dio();
-  dio.options.headers['Authorization'] = 'Bearer fa1b64dc-319c-4504-bc3e-e2e625487f47';
+  dio.options.headers['Authorization'] =
+      'Bearer fa1b64dc-319c-4504-bc3e-e2e625487f47';
   return RestClient(dio);
 }

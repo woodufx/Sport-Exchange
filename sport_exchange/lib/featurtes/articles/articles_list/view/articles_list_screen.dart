@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/articles/article/bloc/article_list_bloc.dart';
 import 'package:sport_exchange/featurtes/articles/articles_list/view/widgets/article_list_card.dart';
 
@@ -48,7 +49,9 @@ class _ArticlesListScreenState extends State<ArticlesListScreen> {
           );
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: AppColors.primaryOrange,
+            ),
           );
         }
       },

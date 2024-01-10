@@ -43,9 +43,7 @@ class _SearchState extends State<Search> {
                             )),
                         filled: true,
                         fillColor: AppColors.white,
-                        hintText: _controller.text.isEmpty
-                            ? 'Поиск товаров'
-                            : _controller.text,
+                        hintText: 'Поиск товаров',
                         hintStyle: const TextStyle(
                             fontSize: 12,
                             color: AppColors.additionalGray,

@@ -56,9 +56,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ShopItemRoute.name: (routeData) {
+      final args = routeData.argsAs<ShopItemRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ShopItemScreen(),
+        child: ShopItemScreen(
+          key: args.key,
+          product: args.product,
+        ),
       );
     },
     ShopListRoute.name: (routeData) {
@@ -192,16 +196,40 @@ class ProfileRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ShopItemScreen]
-class ShopItemRoute extends PageRouteInfo<void> {
-  const ShopItemRoute({List<PageRouteInfo>? children})
-      : super(
+class ShopItemRoute extends PageRouteInfo<ShopItemRouteArgs> {
+  ShopItemRoute({
+    Key? key,
+    required ProductModel product,
+    List<PageRouteInfo>? children,
+  }) : super(
           ShopItemRoute.name,
+          args: ShopItemRouteArgs(
+            key: key,
+            product: product,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ShopItemRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ShopItemRouteArgs> page =
+      PageInfo<ShopItemRouteArgs>(name);
+}
+
+class ShopItemRouteArgs {
+  const ShopItemRouteArgs({
+    this.key,
+    required this.product,
+  });
+
+  final Key? key;
+
+  final ProductModel product;
+
+  @override
+  String toString() {
+    return 'ShopItemRouteArgs{key: $key, product: $product}';
+  }
 }
 
 /// generated route for

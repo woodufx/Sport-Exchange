@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop/shop_item/widgets/shop_card.dart';
 import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
 
@@ -42,22 +43,21 @@ class _ForYouListState extends State<ForYouList> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 16.0,
                   mainAxisSpacing: 16.0,
-                  childAspectRatio: 0.58,
+                  childAspectRatio: 0.54,
                 ),
                 itemCount: products.length,
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, index) {
                   return ShopCard(
-                    productName: products[index].name,
-                    categoryName: products[index].category.toString(),
-                    price: products[index].price,
-                    imageUrls: products[index].pictureUrls,
+                    product: products[index],
                   );
                 },
               );
             } else {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: AppColors.primaryOrange,
+                ),
               );
             }
           }),

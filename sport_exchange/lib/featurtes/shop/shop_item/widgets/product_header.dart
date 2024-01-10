@@ -22,6 +22,8 @@ class ProductHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           productName.toUpperCase(),
           style: Theme.of(context).textTheme.displayMedium?.copyWith(
                 fontSize: isLarge != null ? 20 : 16,
@@ -36,7 +38,7 @@ class ProductHeader extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          price.toString(),
+          '$price₽',
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               fontSize: isLarge != null ? 18 : 14,
               color: AppColors.primaryOrange,

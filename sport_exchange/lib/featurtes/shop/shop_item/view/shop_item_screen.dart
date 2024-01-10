@@ -1,5 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:sport_exchange/api/models/product_model.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop/shop_item/widgets/bottom_button.dart';
 import 'package:sport_exchange/featurtes/shop/shop_item/widgets/image_carousel.dart';
@@ -8,7 +9,8 @@ import 'package:sport_exchange/featurtes/shop/shop_item/widgets/size_card.dart';
 
 @RoutePage()
 class ShopItemScreen extends StatelessWidget {
-  const ShopItemScreen({Key? key}) : super(key: key);
+  const ShopItemScreen({Key? key, required this.product}) : super(key: key);
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -21,29 +23,24 @@ class ShopItemScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
           ImageCarousel(
-            imageUrls: const [
-              'https://myreact.ru/wp-content/uploads/2021/06/1da3f6e9259d55e91816924f2dfe831f.png.webp',
-              'https://myreact.ru/wp-content/uploads/2021/06/0d46f5c51e2bd9edc3237e5e8f445f9b.png.webp',
-              'https://myreact.ru/wp-content/uploads/2021/06/4a770b483af537c497b6bc9be07283cc.png.webp'
-            ],
+            imageUrls: product.pictureUrls,
           ),
           const SizedBox(height: 16),
-          const ProductHeader(
-            productName: 'Nike Air Force 1',
-            price: 209000,
+          ProductHeader(
+            productName: product.name,
+            price: product.price,
             categoryName: 'Кроссовки для бега',
             isLarge: true,
           ),
           const SizedBox(height: 18),
-          Text(
-              'Кроссовки Nike Air Force 1  — это визитная карточка компании Nike. Свое название кроссовки получили в честь борта номер 1 президента США. Это легендарная модель в которой впервые применилась технология Air. Кроссовки сразу же понравились профессиональным спортсменам и баскетболистам за счёт своей удобной посадки и отличной амортизации',
+          Text(product.description,
               style: Theme.of(context).textTheme.bodySmall),
           const SizedBox(height: 30),
           Wrap(
               spacing: 16,
               runSpacing: 10,
               children:
-                  List.generate(5, (index) => SizeCard(size: 'EU 4$index'))),
+              product.sizes.map((e) =>SizeCard(size: e)).toList()),
           const SizedBox(height: 24),
           BottomButton(
             onAddToCardPressed: () => {},
