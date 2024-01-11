@@ -14,4 +14,5 @@ class AppColors {
   static const Color inputBorder = Color.fromARGB(255, 227, 227, 227);
   static const Color dotInactiveColor = Color.fromARGB(255, 198, 198, 198);
   static const Color white = Color.fromARGB(255, 255, 255, 255);
+  static const Color error = Color.fromARGB(255, 242, 34, 34);
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import "package:flutter_bloc/flutter_bloc.dart";
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/featurtes/articles/bloc/article_list_bloc.dart';
+import 'package:sport_exchange/featurtes/login/view/bloc/login_bloc.dart';
 import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
 import 'package:sport_exchange/router/router.dart';
 import 'package:sport_exchange/theme/theme.dart';
@@ -35,6 +36,9 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<ShopItemListBloc>(
           create: (BuildContext context) =>
               ShopItemListBloc(restClient: restClient),
+        ),
+        BlocProvider<LoginBloc>(
+          create: (BuildContext context) => LoginBloc(restClient: restClient),
         ),
       ],
       child: MaterialApp.router(
