@@ -54,10 +54,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainScreen(),
       );
     },
+    OrderRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OrdersScreen(),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfileScreen(),
+      );
+    },
+    ShopCardRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ShopCardScreen(),
       );
     },
     ShopItemRoute.name: (routeData) {
@@ -209,6 +221,20 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [OrderScreen]
+class OrderRoute extends PageRouteInfo<void> {
+  const OrderRoute({List<PageRouteInfo>? children})
+      : super(
+          OrderRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OrderRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ProfileScreen]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute({List<PageRouteInfo>? children})
@@ -218,6 +244,20 @@ class ProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ShopCardScreen]
+class ShopCardRoute extends PageRouteInfo<void> {
+  const ShopCardRoute({List<PageRouteInfo>? children})
+      : super(
+          ShopCardRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ShopCardRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

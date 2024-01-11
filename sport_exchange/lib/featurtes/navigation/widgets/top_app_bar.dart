@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
@@ -24,7 +25,7 @@ class TopAppBar extends StatelessWidget {
             color: AppColors.mainBlack,
             size: 20,
           ),
-          onTap: () => {},
+          onTap: () => {AutoRouter.of(context).pushNamed('/wish-list')},
         ),
         const SizedBox(width: 16),
         InkWell(
@@ -35,7 +36,7 @@ class TopAppBar extends StatelessWidget {
             color: AppColors.mainBlack,
             size: 20,
           ),
-          onTap: () => {},
+          onTap: () => {AutoRouter.of(context).pushNamed('/shop-card')},
         )
       ]),
     );
