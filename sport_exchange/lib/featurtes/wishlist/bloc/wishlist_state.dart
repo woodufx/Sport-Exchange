@@ -12,12 +12,12 @@ class WishlistInitial extends WishlistState {}
 class WishlistLoading extends WishlistState {}
 
 class WishlistLoaded extends WishlistState {
-  final ContentModel<List<ProductModel>> bucket;
+  final ContentModel<List<ProductModel>> wishlist;
 
-  const WishlistLoaded(this.bucket);
+  const WishlistLoaded(this.wishlist);
 
   @override
-  List<Object> get props => super.props..add(bucket);
+  List<Object> get props => super.props..add(wishlist);
 }
 
 class WishlistFailure extends WishlistState {
