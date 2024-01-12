@@ -21,9 +21,7 @@ class ShopItemListBloc extends Bloc<ShopItemListEvent, ShopItemListState> {
     try {
       emit(ShopItemListLoading());
       final ContentModel<List<ProductModel>> products;
-      products = event.searchQuery.trim().isEmpty == true
-          ? await restClient.getProductsWithoutParameters()
-          : await restClient.getProducts({'searchQuery': event.searchQuery});
+      products = await restClient.getProducts({'searchQuery': event.searchQuery.trim()});
       emit(ShopItemListLoaded(products));
     } catch (e) {
       emit(ShopItemListFailure(e));

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:sport_exchange/api/models/token_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sport_exchange/api/models/user_model.dart';
 
 import 'models/content_model.dart';
 import 'models/product_model.dart';
@@ -12,6 +13,9 @@ part 'api.g.dart';
 @RestApi(baseUrl: 'http://relex-coin.relex.ru:7766/api')
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
+
+  @GET('/users/user-info')
+  Future<ContentModel<UserModel>> getProfile();
 
   @GET('/products')
   Future<ContentModel<List<ProductModel>>> getProducts(

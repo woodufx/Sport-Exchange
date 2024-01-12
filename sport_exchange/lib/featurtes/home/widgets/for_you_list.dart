@@ -14,9 +14,9 @@ class ForYouList extends StatefulWidget {
 class _ForYouListState extends State<ForYouList> {
   @override
   void initState() {
-
-    BlocProvider.of<ShopItemListBloc>(context).add(const ShopItemListGetEvent(searchQuery: ''));
     super.initState();
+    BlocProvider.of<ShopItemListBloc>(context)
+        .add(const ShopItemListGetEvent(searchQuery: ''));
   }
 
   @override

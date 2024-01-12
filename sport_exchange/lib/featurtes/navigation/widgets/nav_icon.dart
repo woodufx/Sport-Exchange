@@ -14,6 +14,6 @@ class NavIcon extends StatefulWidget {
 class _NavIconState extends State<NavIcon> {
   @override
   Widget build(BuildContext context) {
-    return Icon(Icons.abc_outlined);
+    return const Icon(Icons.abc_outlined);
   }
 }

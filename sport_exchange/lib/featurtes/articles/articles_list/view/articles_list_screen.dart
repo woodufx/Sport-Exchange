@@ -17,8 +17,8 @@ class ArticlesListScreen extends StatefulWidget {
 class _ArticlesListScreenState extends State<ArticlesListScreen> {
   @override
   void initState() {
-    BlocProvider.of<ArticleListBloc>(context).add(ArticleListGetEvent());
     super.initState();
+    BlocProvider.of<ArticleListBloc>(context).add(ArticleListGetEvent());
   }
 
   @override
