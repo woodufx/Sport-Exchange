@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
+import 'package:sport_exchange/api/models/wishlist_model.dart';
 import 'package:sport_exchange/common/widgets/custom-icon-button.dart';
 import 'package:sport_exchange/common/widgets/image_wrapper.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
+import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';
 import 'package:sport_exchange/featurtes/wishlist/widgets/wish-list-card/wish-list-card-info.dart';
 
 class WishListCard extends StatefulWidget {
@@ -10,7 +13,7 @@ class WishListCard extends StatefulWidget {
   final ProductModel product;
 
   @override
-  _WishListCardState createState() => _WishListCardState();
+  State<WishListCard> createState() => _WishListCardState();
 }
 
 class _WishListCardState extends State<WishListCard> {
@@ -40,7 +43,13 @@ class _WishListCardState extends State<WishListCard> {
               width: 16,
             ),
             CustomIconButton(
-                onTap: () => {},
+                onTap: () {
+                  BlocProvider.of<WishlistBloc>(context).add(
+                    WishlistDeleteEvent(
+                        model: WishlistUpdateDeleteModel(
+                            productIds: [widget.product.id])),
+                  );
+                },
                 buttonIcon: const Icon(
                   Icons.favorite,
                   color: AppColors.primaryOrange,

@@ -69,8 +69,7 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
       emit(BucketClearLoading());
       await restClient.clearBucket();
       emit(BucketClearLoaded());
-      final emptyBucket = ContentModel<List<BucketModel>>(content: List.empty());
-      emit(BucketLoaded(emptyBucket));
+      emit(BucketLoaded({} as ContentModel<List<BucketModel>>));
     } catch (e) {
       emit(BucketClearFailure(e));
     }

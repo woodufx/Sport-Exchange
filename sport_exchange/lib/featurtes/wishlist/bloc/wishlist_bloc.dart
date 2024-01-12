@@ -69,8 +69,7 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
       emit(WishlistClearLoading());
       await restClient.clearWishlist();
       emit(WishlistClearLoaded());
-      final emptyWishlist = ContentModel<List<ProductModel>>(content: List.empty());
-      emit(WishlistLoaded(emptyWishlist));
+      emit(WishlistLoaded({} as ContentModel<List<ProductModel>>));
     } catch (e) {
       emit(WishlistClearFailure(e));
     }

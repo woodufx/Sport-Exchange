@@ -1,7 +1,11 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
+import 'package:sport_exchange/api/models/wishlist_model.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
+import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';
+
 import '/featurtes/shop/shop_item/widgets/widgets.dart';
 
 @RoutePage()
@@ -40,7 +44,12 @@ class ShopItemScreen extends StatelessWidget {
           const SizedBox(height: 24),
           BottomButton(
             onAddToCardPressed: () => {},
-            onFavouritesPressed: () => {},
+            onFavouritesPressed: () {
+              BlocProvider.of<WishlistBloc>(context).add(
+                WishlistUpdateEvent(
+                    model: WishlistUpdateDeleteModel(productIds: [product.id])),
+              );
+            },
           ),
           const SizedBox(height: 40)
         ],
