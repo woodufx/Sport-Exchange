@@ -87,7 +87,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<ContentModel<UserModel>> updateProfile(UserModel model) async {
+  Future<ContentModel<UserModel>> updateProfile(UserUpdateModel model) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -429,7 +429,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<ContentModel<List<ProductModel>>> topUp(
+  Future<ContentModel<TransactionModel>> topUp(
       TransactionCreateModel model) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -437,14 +437,14 @@ class _RestClient implements RestClient {
     final _data = <String, dynamic>{};
     _data.addAll(model.toJson());
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ContentModel<List<ProductModel>>>(Options(
-      method: 'PUT',
+        _setStreamType<ContentModel<TransactionModel>>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/wishlists/products',
+              '/transactions/top-up',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -453,26 +453,21 @@ class _RestClient implements RestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ContentModel<List<ProductModel>>.fromJson(
+    final value = ContentModel<TransactionModel>.fromJson(
       _result.data!,
-      (json) => json is List<dynamic>
-          ? json
-              .map<ProductModel>(
-                  (i) => ProductModel.fromJson(i as Map<String, dynamic>))
-              .toList()
-          : List.empty(),
+      (json) => TransactionModel.fromJson(json as Map<String, dynamic>),
     );
     return value;
   }
 
   @override
-  Future<ContentModel<OrderModel>> getOrders() async {
+  Future<ContentModel<List<OrderModel>>> getOrders() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ContentModel<OrderModel>>(Options(
+        _setStreamType<ContentModel<List<OrderModel>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -488,9 +483,14 @@ class _RestClient implements RestClient {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ContentModel<OrderModel>.fromJson(
+    final value = ContentModel<List<OrderModel>>.fromJson(
       _result.data!,
-      (json) => OrderModel.fromJson(json as Map<String, dynamic>),
+      (json) => json is List<dynamic>
+          ? json
+              .map<OrderModel>(
+                  (i) => OrderModel.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
     );
     return value;
   }

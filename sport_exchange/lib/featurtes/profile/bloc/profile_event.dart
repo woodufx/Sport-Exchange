@@ -13,3 +13,12 @@ class ProfileGetEvent extends ProfileEvent {
   @override
   List<Object> get props => super.props..addAll([]);
 }
+
+class ProfileUpdateEvent extends ProfileEvent {
+  final UserUpdateModel model;
+
+  const ProfileUpdateEvent({required this.model});
+
+  @override
+  List<Object> get props => super.props..addAll([model]);
+}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop/shop_item/widgets/shop_card.dart';
-import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
+import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_bloc.dart';
 
 class ForYouList extends StatefulWidget {
   const ForYouList({Key? key}) : super(key: key);
@@ -15,8 +15,8 @@ class _ForYouListState extends State<ForYouList> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<ShopItemListBloc>(context)
-        .add(const ShopItemListGetEvent(searchQuery: ''));
+    BlocProvider.of<ShopItemBloc>(context)
+        .add(const ShopItemGetEvent(searchQuery: ''));
   }
 
   @override
@@ -33,9 +33,9 @@ class _ForYouListState extends State<ForYouList> {
                 ),
           ),
           const SizedBox(height: 16),
-          BlocBuilder<ShopItemListBloc, ShopItemListState>(
+          BlocBuilder<ShopItemBloc, ShopItemState>(
               builder: (context, state) {
-            if (state is ShopItemListLoaded) {
+            if (state is ShopItemLoaded) {
               final products = state.products.content;
               return GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),

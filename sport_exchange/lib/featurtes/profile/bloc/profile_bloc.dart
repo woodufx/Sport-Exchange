@@ -11,10 +11,11 @@ part 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({required this.restClient}) : super(ProfileInitial()) {
-    on<ProfileGetEvent>(_onProfile);
+    on<ProfileGetEvent>(_onProfileGet);
+    on<ProfileUpdateEvent>(_onProfileUpdate);
   }
 
-  FutureOr<void> _onProfile(
+  FutureOr<void> _onProfileGet(
       ProfileGetEvent event,
       Emitter<ProfileState> emit,
       ) async {
@@ -24,6 +25,19 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(ProfileLoaded(profile));
     } catch (e) {
       emit(ProfileFailure(e));
+    }
+  }
+
+  FutureOr<void> _onProfileUpdate(
+      ProfileUpdateEvent event,
+      Emitter<ProfileState> emit,
+      ) async {
+    try {
+      emit(ProfileUpdateLoading());
+      final profile = await restClient.updateProfile(event.model);
+      emit(ProfileLoaded(profile));
+    } catch (e) {
+      emit(ProfileUpdateFailure(e));
     }
   }
 

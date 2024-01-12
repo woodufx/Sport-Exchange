@@ -28,7 +28,7 @@ abstract class RestClient {
   Future<ContentModel<UserModel>> getProfile();
 
   @PUT('/users/user-info')
-  Future<ContentModel<UserModel>> updateProfile(@Body() UserModel model);
+  Future<ContentModel<UserModel>> updateProfile(@Body() UserUpdateModel model);
 
   @GET('/buckets/products')
   Future<ContentModel<List<BucketModel>>> getBucket();
@@ -57,11 +57,11 @@ abstract class RestClient {
   @GET('/transactions')
   Future<ContentModel<List<TransactionModel>>> getTransactions();
 
-  @PUT('/wishlists/products')
-  Future<ContentModel<List<ProductModel>>> topUp(@Body() TransactionCreateModel model);
+  @POST('/transactions/top-up')
+  Future<ContentModel<TransactionModel>> topUp(@Body() TransactionCreateModel model);
 
   @GET('/orders')
-  Future<ContentModel<OrderModel>> getOrders();
+  Future<ContentModel<List<OrderModel>>> getOrders();
 
   @POST('/orders')
   Future<ContentModel<OrderModel>> createOrder();

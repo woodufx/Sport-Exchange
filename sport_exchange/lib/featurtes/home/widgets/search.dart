@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
-import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_list_bloc.dart';
+import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_bloc.dart';
 
 class Search extends StatefulWidget {
   const Search({Key? key}) : super(key: key);
@@ -66,8 +66,8 @@ class _SearchState extends State<Search> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(10.0),
                   onTap: () {
-                    BlocProvider.of<ShopItemListBloc>(context).add(
-                        ShopItemListGetEvent(searchQuery: _controller.text));
+                    BlocProvider.of<ShopItemBloc>(context).add(
+                        ShopItemGetEvent(searchQuery: _controller.text));
                   },
                   child: const Center(
                     child: Icon(

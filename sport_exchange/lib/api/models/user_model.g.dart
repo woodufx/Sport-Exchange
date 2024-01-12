@@ -29,3 +29,25 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'address': instance.address,
       'pictureUrl': instance.pictureUrl,
     };
+
+UserUpdateModel _$UserUpdateModelFromJson(Map<String, dynamic> json) =>
+    UserUpdateModel(
+      login: json['login'] as String?,
+      email: json['email'] as String?,
+      lastName: json['lastName'] as String?,
+      firstName: json['firstName'] as String?,
+      password: json['password'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
+      address: json['address'] as String?,
+    );
+
+Map<String, dynamic> _$UserUpdateModelToJson(UserUpdateModel instance) =>
+    <String, dynamic>{
+      'login': instance.login,
+      'email': instance.email,
+      'lastName': instance.lastName,
+      'firstName': instance.firstName,
+      'password': instance.password,
+      'phoneNumber': instance.phoneNumber,
+      'address': instance.address,
+    };

@@ -28,3 +28,14 @@ class ProfileFailure extends ProfileState {
   @override
   List<Object> get props => super.props..add(error);
 }
+
+final class ProfileUpdateLoading extends ProfileState {}
+
+class ProfileUpdateFailure extends ProfileState {
+  final Object error;
+
+  const ProfileUpdateFailure(this.error);
+
+  @override
+  List<Object> get props => super.props..add(error);
+}

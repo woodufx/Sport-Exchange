@@ -6,25 +6,25 @@ import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/content_model.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
 
-part 'shop_item_list_event.dart';
-part 'shop_item_list_state.dart';
+part 'shop_item_event.dart';
+part 'shop_item_state.dart';
 
-class ShopItemListBloc extends Bloc<ShopItemListEvent, ShopItemListState> {
-  ShopItemListBloc({required this.restClient}) : super(ShopItemListInitial()) {
-    on<ShopItemListGetEvent>(_onShopItems);
+class ShopItemBloc extends Bloc<ShopItemEvent, ShopItemState> {
+  ShopItemBloc({required this.restClient}) : super(ShopItemInitial()) {
+    on<ShopItemGetEvent>(_onShopItemGet);
   }
 
-  FutureOr<void> _onShopItems(
-    ShopItemListGetEvent event,
-    Emitter<ShopItemListState> emit,
+  FutureOr<void> _onShopItemGet(
+    ShopItemGetEvent event,
+    Emitter<ShopItemState> emit,
   ) async {
     try {
-      emit(ShopItemListLoading());
+      emit(ShopItemLoading());
       final ContentModel<List<ProductModel>> products;
       products = await restClient.getProducts({'searchQuery': event.searchQuery.trim()});
-      emit(ShopItemListLoaded(products));
+      emit(ShopItemLoaded(products));
     } catch (e) {
-      emit(ShopItemListFailure(e));
+      emit(ShopItemFailure(e));
     }
   }
 

@@ -35,3 +35,32 @@ class UserModel extends Equatable {
   @override
   List<Object> get props => [id, login, email, lastName, firstName, balance, phoneNumber, address, pictureUrl];
 }
+
+@JsonSerializable()
+class UserUpdateModel extends Equatable {
+  final String? login;
+  final String? email;
+  final String? lastName;
+  final String? firstName;
+  final String? password;
+  final String? phoneNumber;
+  final String? address;
+
+  const UserUpdateModel({
+    this.login,
+    this.email,
+    this.lastName,
+    this.firstName,
+    this.password,
+    this.phoneNumber,
+    this.address,
+  });
+
+  factory UserUpdateModel.fromJson(Map<String, dynamic> json) =>
+      _$UserUpdateModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserUpdateModelToJson(this);
+
+  @override
+  List<Object> get props => [];
+}
