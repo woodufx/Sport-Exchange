@@ -54,7 +54,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MainScreen(),
       );
     },
-    OrderRoute.name: (routeData) {
+    OrdersRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OrdersScreen(),
@@ -221,15 +221,15 @@ class MainRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [OrderScreen]
-class OrderRoute extends PageRouteInfo<void> {
-  const OrderRoute({List<PageRouteInfo>? children})
+/// [OrdersScreen]
+class OrdersRoute extends PageRouteInfo<void> {
+  const OrdersRoute({List<PageRouteInfo>? children})
       : super(
-          OrderRoute.name,
+          OrdersRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'OrderRoute';
+  static const String name = 'OrdersRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

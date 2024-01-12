@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
+import 'package:sport_exchange/featurtes/profile/bloc/profile_bloc.dart';
 
-class UserBalance extends StatelessWidget {
+class UserBalance extends StatefulWidget {
   const UserBalance({Key? key}) : super(key: key);
+
+  @override
+  State<UserBalance> createState() => _UserBalanceState();
+}
+
+class _UserBalanceState extends State<UserBalance> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<ProfileBloc>(context).add(const ProfileGetEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +59,21 @@ class UserBalance extends StatelessWidget {
                         onTap: () => {},
                       ),
                       const SizedBox(width: 10),
-                      Text(
-                        '1.000.000₽',
-                        style: Theme.of(context).textTheme.displaySmall,
-                      )
+                      BlocBuilder<ProfileBloc, ProfileState>(
+                          builder: (context, state) {
+                        if (state is ProfileLoaded) {
+                          final user = state.user.content;
+                          return Text(
+                            '${user.balance}₽',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          );
+                        } else {
+                          return Text(
+                            '⏳',
+                            style: Theme.of(context).textTheme.displaySmall,
+                          );
+                        }
+                      }),
                     ])
                   ],
                 ),

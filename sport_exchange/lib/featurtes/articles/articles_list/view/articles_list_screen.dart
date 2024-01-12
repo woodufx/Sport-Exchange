@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import '/featurtes/articles/articles_list/widgets/widgets.dart';
-import 'package:sport_exchange/featurtes/articles/bloc/article_list_bloc.dart';
+import 'package:sport_exchange/featurtes/articles/bloc/article_bloc.dart';
 import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
 
 @RoutePage()
@@ -17,15 +17,15 @@ class ArticlesListScreen extends StatefulWidget {
 class _ArticlesListScreenState extends State<ArticlesListScreen> {
   @override
   void initState() {
-    BlocProvider.of<ArticleListBloc>(context).add(ArticleListGetEvent());
     super.initState();
+    BlocProvider.of<ArticleBloc>(context).add(ArticleGetEvent());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ArticleListBloc, ArticleListState>(
+    return BlocBuilder<ArticleBloc, ArticleState>(
       builder: (context, state) {
-        if (state is ArticleListLoaded) {
+        if (state is ArticleLoaded) {
           final articles = state.articles.content;
           return ListView(
             padding: const EdgeInsets.symmetric(horizontal: 24),

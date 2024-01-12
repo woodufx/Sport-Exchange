@@ -37,6 +37,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ShopListRoute.page, path: '/shop-list'),
         AutoRoute(page: WishlistRoute.page, path: '/wish-list'),
         AutoRoute(page: ShopCardRoute.page, path: '/shop-card'),
-        AutoRoute(page: OrderRoute.page, path: '/shop-card'),
+        AutoRoute(page: OrdersRoute.page, path: '/shop-card'),
       ];
 }
