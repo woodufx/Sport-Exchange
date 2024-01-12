@@ -22,34 +22,33 @@ class _WishlistScreenState extends State<WishlistScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WishlistBloc, WishlistState>(
-      builder: (context, state) {
-        if (state is WishlistLoaded) {
-          final products = state.wishlist.content;
-          return Scaffold(
-            appBar: AppBar(
-              surfaceTintColor: AppColors.white,
-              backgroundColor: AppColors.white,
-            ),
-            body: ListView.separated(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                itemCount: products.length,
-                separatorBuilder: (context, index) => const SizedBox(
-                      height: 16,
-                    ),
-                itemBuilder: (context, index) => (WishListCard(
-                      product: products[index],
-                    ))),
-          );
-        } else {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.primaryOrange,
-            ),
-          );
-        }
-      },
-    );
+    return Scaffold(
+        appBar: AppBar(
+          surfaceTintColor: AppColors.white,
+          backgroundColor: AppColors.white,
+        ),
+        body: BlocBuilder<WishlistBloc, WishlistState>(
+          builder: (context, state) {
+            if (state is WishlistLoaded) {
+              final products = state.wishlist.content;
+              return ListView.separated(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                  itemCount: products.length,
+                  separatorBuilder: (context, index) => const SizedBox(
+                        height: 16,
+                      ),
+                  itemBuilder: (context, index) => (WishListCard(
+                        product: products[index],
+                      )));
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.primaryOrange,
+                ),
+              );
+            }
+          },
+        ));
   }
 }
