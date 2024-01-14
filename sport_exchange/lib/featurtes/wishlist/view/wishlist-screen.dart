@@ -1,31 +1,21 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_exchange/common/widgets/appbar.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';
 import 'package:sport_exchange/featurtes/wishlist/widgets/wish-list-card/wish-list-card.dart';
 
 @RoutePage()
-class WishlistScreen extends StatefulWidget {
+class WishlistScreen extends StatelessWidget {
   const WishlistScreen({Key? key}) : super(key: key);
-
-  @override
-  State<WishlistScreen> createState() => _WishlistScreenState();
-}
-
-class _WishlistScreenState extends State<WishlistScreen> {
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<WishlistBloc>(context).add(const WishlistGetEvent());
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          surfaceTintColor: AppColors.white,
-          backgroundColor: AppColors.white,
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: CustomAppBar(currentRouteName: 'Вишлист'),
         ),
         body: BlocBuilder<WishlistBloc, WishlistState>(
           builder: (context, state) {
@@ -39,6 +29,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                         height: 16,
                       ),
                   itemBuilder: (context, index) => (WishListCard(
+                        key: UniqueKey(),
                         product: products[index],
                       )));
             } else {

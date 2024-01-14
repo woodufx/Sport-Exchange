@@ -18,25 +18,28 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
     on<BucketUpdateEvent>(_onBucketUpdate);
     on<BucketDeleteEvent>(_onBucketDelete);
     on<BucketClearEvent>(_onBucketClear);
+    on<BucketAmountEvent>(_onBucketAmount);
   }
 
   FutureOr<void> _onBucketGet(
-      BucketGetEvent event,
-      Emitter<BucketState> emit,
-      ) async {
+    BucketGetEvent event,
+    Emitter<BucketState> emit,
+  ) async {
     try {
-      emit(BucketLoading());
-      final bucket = await restClient.getBucket();
-      emit(BucketLoaded(bucket));
+      if (state is! BucketLoaded) {
+        emit(BucketLoading());
+        final bucket = await restClient.getBucket();
+        emit(BucketLoaded(bucket));
+      }
     } catch (e) {
       emit(BucketFailure(e));
     }
   }
 
   FutureOr<void> _onBucketUpdate(
-      BucketUpdateEvent event,
-      Emitter<BucketState> emit,
-      ) async {
+    BucketUpdateEvent event,
+    Emitter<BucketState> emit,
+  ) async {
     try {
       emit(BucketAddLoading());
       final bucket = await restClient.addToBucket(event.model);
@@ -48,9 +51,9 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
   }
 
   FutureOr<void> _onBucketDelete(
-      BucketDeleteEvent event,
-      Emitter<BucketState> emit,
-      ) async {
+    BucketDeleteEvent event,
+    Emitter<BucketState> emit,
+  ) async {
     try {
       emit(BucketRemoveLoading());
       final bucket = await restClient.removeFromBucket(event.model);
@@ -62,14 +65,26 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
   }
 
   FutureOr<void> _onBucketClear(
-      BucketClearEvent event,
-      Emitter<BucketState> emit,
-      ) async {
+    BucketClearEvent event,
+    Emitter<BucketState> emit,
+  ) async {
     try {
       emit(BucketClearLoading());
       await restClient.clearBucket();
       emit(BucketClearLoaded());
       emit(BucketLoaded({} as ContentModel<List<BucketModel>>));
+    } catch (e) {
+      emit(BucketClearFailure(e));
+    }
+  }
+
+  FutureOr<void> _onBucketAmount(
+    BucketAmountEvent event,
+    Emitter<BucketState> emit,
+  ) async {
+    try {
+      final bucket = await restClient.changeProductAmount(event.model);
+      emit(BucketLoaded(bucket));
     } catch (e) {
       emit(BucketClearFailure(e));
     }

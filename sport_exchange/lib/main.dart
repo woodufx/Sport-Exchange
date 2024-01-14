@@ -6,7 +6,7 @@ import 'package:sport_exchange/featurtes/articles/bloc/article_bloc.dart';
 import 'package:sport_exchange/featurtes/login/view/bloc/login_bloc.dart';
 import 'package:sport_exchange/featurtes/orders/bloc/order_bloc.dart';
 import 'package:sport_exchange/featurtes/profile/bloc/profile_bloc.dart';
-import 'package:sport_exchange/featurtes/shop/shop_item/bloc/bucket_bloc.dart';
+import 'package:sport_exchange/featurtes/shop-card/bloc/bucket_bloc.dart';
 import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_bloc.dart';
 import 'package:sport_exchange/featurtes/transactions/bloc/transaction_bloc.dart';
 import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';

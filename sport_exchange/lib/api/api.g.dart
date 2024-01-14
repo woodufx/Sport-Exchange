@@ -189,6 +189,43 @@ class _RestClient implements RestClient {
   }
 
   @override
+  Future<ContentModel<List<BucketModel>>> changeProductAmount(
+      BucketUpdateModel model) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(model.toJson());
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ContentModel<List<BucketModel>>>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/buckets/products/amount',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = ContentModel<List<BucketModel>>.fromJson(
+      _result.data!,
+      (json) => json is List<dynamic>
+          ? json
+              .map<BucketModel>(
+                  (i) => BucketModel.fromJson(i as Map<String, dynamic>))
+              .toList()
+          : List.empty(),
+    );
+    return value;
+  }
+
+  @override
   Future<ContentModel<List<BucketModel>>> removeFromBucket(
       List<BucketDeleteModel> model) async {
     const _extra = <String, dynamic>{};

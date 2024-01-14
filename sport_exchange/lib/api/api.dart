@@ -34,10 +34,16 @@ abstract class RestClient {
   Future<ContentModel<List<BucketModel>>> getBucket();
 
   @PUT('/buckets/products')
-  Future<ContentModel<List<BucketModel>>> addToBucket(@Body() List<BucketUpdateModel> model);
+  Future<ContentModel<List<BucketModel>>> addToBucket(
+      @Body() List<BucketUpdateModel> model);
+
+  @PUT('/buckets/products/amount')
+  Future<ContentModel<List<BucketModel>>> changeProductAmount(
+      @Body() BucketUpdateModel model);
 
   @DELETE('/buckets/products')
-  Future<ContentModel<List<BucketModel>>> removeFromBucket(@Body() List<BucketDeleteModel> model);
+  Future<ContentModel<List<BucketModel>>> removeFromBucket(
+      @Body() List<BucketDeleteModel> model);
 
   @DELETE('/buckets/clear')
   Future<ContentModel<String>> clearBucket();
@@ -46,10 +52,12 @@ abstract class RestClient {
   Future<ContentModel<List<ProductModel>>> getWishlist();
 
   @PUT('/wishlists/products')
-  Future<ContentModel<List<ProductModel>>> addToWishlist(@Body() WishlistUpdateDeleteModel model);
+  Future<ContentModel<List<ProductModel>>> addToWishlist(
+      @Body() WishlistUpdateDeleteModel model);
 
   @DELETE('/wishlists/products')
-  Future<ContentModel<List<ProductModel>>> removeFromWishlist(@Body() WishlistUpdateDeleteModel model);
+  Future<ContentModel<List<ProductModel>>> removeFromWishlist(
+      @Body() WishlistUpdateDeleteModel model);
 
   @DELETE('/wishlists/clear')
   Future<ContentModel<String>> clearWishlist();
@@ -58,7 +66,8 @@ abstract class RestClient {
   Future<ContentModel<List<TransactionModel>>> getTransactions();
 
   @POST('/transactions/top-up')
-  Future<ContentModel<TransactionModel>> topUp(@Body() TransactionCreateModel model);
+  Future<ContentModel<TransactionModel>> topUp(
+      @Body() TransactionCreateModel model);
 
   @GET('/orders')
   Future<ContentModel<List<OrderModel>>> getOrders();

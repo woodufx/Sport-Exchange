@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -21,24 +22,25 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
   }
 
   FutureOr<void> _onWishlistGet(
-      WishlistGetEvent event,
-      Emitter<WishlistState> emit,
-      ) async {
+    WishlistGetEvent event,
+    Emitter<WishlistState> emit,
+  ) async {
     try {
-      emit(WishlistLoading());
-      final bucket = await restClient.getWishlist();
-      emit(WishlistLoaded(bucket));
+      if (state is! WishlistLoaded) {
+        emit(WishlistLoading());
+        final bucket = await restClient.getWishlist();
+        emit(WishlistLoaded(bucket));
+      }
     } catch (e) {
       emit(WishlistFailure(e));
     }
   }
 
   FutureOr<void> _onWishlistUpdate(
-      WishlistUpdateEvent event,
-      Emitter<WishlistState> emit,
-      ) async {
+    WishlistUpdateEvent event,
+    Emitter<WishlistState> emit,
+  ) async {
     try {
-      emit(WishlistAddLoading());
       final wishlist = await restClient.addToWishlist(event.model);
       emit(WishlistAddLoaded());
       emit(WishlistLoaded(wishlist));
@@ -48,11 +50,10 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
   }
 
   FutureOr<void> _onWishlistDelete(
-      WishlistDeleteEvent event,
-      Emitter<WishlistState> emit,
-      ) async {
+    WishlistDeleteEvent event,
+    Emitter<WishlistState> emit,
+  ) async {
     try {
-      emit(WishlistRemoveLoading());
       final wishlist = await restClient.removeFromWishlist(event.model);
       emit(WishlistRemoveLoaded());
       emit(WishlistLoaded(wishlist));
@@ -62,9 +63,9 @@ class WishlistBloc extends Bloc<WishlistEvent, WishlistState> {
   }
 
   FutureOr<void> _onWishlistClear(
-      WishlistClearEvent event,
-      Emitter<WishlistState> emit,
-      ) async {
+    WishlistClearEvent event,
+    Emitter<WishlistState> emit,
+  ) async {
     try {
       emit(WishlistClearLoading());
       await restClient.clearWishlist();

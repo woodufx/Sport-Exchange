@@ -23,6 +23,15 @@ class BucketUpdateEvent extends BucketEvent {
   List<Object> get props => super.props..addAll([model]);
 }
 
+class BucketAmountEvent extends BucketEvent {
+  final BucketUpdateModel model;
+
+  const BucketAmountEvent({required this.model});
+
+  @override
+  List<Object> get props => super.props..addAll([model]);
+}
+
 class BucketDeleteEvent extends BucketEvent {
   final List<BucketDeleteModel> model;
 
