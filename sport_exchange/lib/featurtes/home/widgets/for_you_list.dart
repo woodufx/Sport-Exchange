@@ -33,8 +33,7 @@ class _ForYouListState extends State<ForYouList> {
                 ),
           ),
           const SizedBox(height: 16),
-          BlocBuilder<ShopItemBloc, ShopItemState>(
-              builder: (context, state) {
+          BlocBuilder<ShopItemBloc, ShopItemState>(builder: (context, state) {
             if (state is ShopItemLoaded) {
               final products = state.products.content;
               return GridView.builder(

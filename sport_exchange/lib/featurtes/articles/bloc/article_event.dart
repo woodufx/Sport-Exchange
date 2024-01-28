@@ -8,7 +8,6 @@ abstract class ArticleEvent extends Equatable {
 }
 
 class ArticleGetEvent extends ArticleEvent {
-
   @override
   List<Object> get props => super.props..addAll([]);
 }

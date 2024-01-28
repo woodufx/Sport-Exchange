@@ -4,7 +4,6 @@ part 'content_model.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
 class ContentModel<T> {
-  
   T content;
 
   ContentModel({required this.content});

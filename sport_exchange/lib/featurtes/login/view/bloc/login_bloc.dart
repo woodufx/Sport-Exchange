@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/content_model.dart';
@@ -13,6 +13,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({required this.restClient}) : super(LoginInitial()) {
     on<Authorize>(_onAuthorize);
   }
+
   FutureOr<void> _onAuthorize(
     Authorize event,
     Emitter<LoginState> emit,

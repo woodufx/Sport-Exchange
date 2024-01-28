@@ -6,16 +6,10 @@ import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop-card/bloc/bucket_bloc.dart';
 
 class ShopCardItem extends StatelessWidget {
-  ShopCardItem(
-      {Key? key,
-      // required this.onCheckboxChange,
-      required this.isChecked,
-      required this.item})
-      : super(key: key);
+  ShopCardItem({super.key, required this.isChecked, required this.item});
 
   BucketModel item;
   final bool isChecked;
-  // final Function(bool? value) onCheckboxChange;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +25,7 @@ class ShopCardItem extends StatelessWidget {
           children: [
             ImageWrapper(
               aspectRatio: 0.87,
-              imageUrl: item?.product.pictureUrls[0] ?? '',
+              imageUrl: item.product.pictureUrls[0],
             ),
             const SizedBox(
               width: 16,
@@ -42,7 +36,7 @@ class ShopCardItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    item?.product.name.toUpperCase() ?? '',
+                    item.product.name.toUpperCase(),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
@@ -58,7 +52,7 @@ class ShopCardItem extends StatelessWidget {
                             color: AppColors.iconsGray, fontSize: 12),
                       ),
                       Text(
-                        item?.size ?? '',
+                        item.size,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontSize: 12, fontWeight: FontWeight.w600),
                       )

@@ -7,7 +7,6 @@ import 'package:sport_exchange/api/models/content_model.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
 
 part 'shop_item_event.dart';
-
 part 'shop_item_state.dart';
 
 class ShopItemBloc extends Bloc<ShopItemEvent, ShopItemState> {

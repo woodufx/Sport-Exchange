@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sport_exchange/common/widgets/button.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/login/view/bloc/login_bloc.dart';
 import 'package:sport_exchange/featurtes/login/view/widgets/login_input.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sport_exchange/router/router.dart';
 
 @RoutePage()

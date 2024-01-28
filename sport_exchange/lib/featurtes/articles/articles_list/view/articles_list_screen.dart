@@ -2,9 +2,10 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
-import '/featurtes/articles/articles_list/widgets/widgets.dart';
 import 'package:sport_exchange/featurtes/articles/bloc/article_bloc.dart';
 import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
+
+import '/featurtes/articles/articles_list/widgets/widgets.dart';
 
 @RoutePage()
 class ArticlesListScreen extends StatefulWidget {

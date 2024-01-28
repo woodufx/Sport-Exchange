@@ -66,8 +66,8 @@ class _SearchState extends State<Search> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(10.0),
                   onTap: () {
-                    BlocProvider.of<ShopItemBloc>(context).add(
-                        ShopItemGetEvent(searchQuery: _controller.text));
+                    BlocProvider.of<ShopItemBloc>(context)
+                        .add(ShopItemGetEvent(searchQuery: _controller.text));
                   },
                   child: const Center(
                     child: Icon(
