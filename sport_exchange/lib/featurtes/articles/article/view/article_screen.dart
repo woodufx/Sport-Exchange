@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sport_exchange/common/widgets/appbar.dart';
 import 'package:sport_exchange/common/widgets/image_wrapper.dart';
+import 'package:sport_exchange/featurtes/articles/article/widgets/widgets.dart';
 import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
-
-import '/featurtes/articles/article/widgets/widgets.dart';
 
 @RoutePage()
 class ArticleScreen extends StatelessWidget {

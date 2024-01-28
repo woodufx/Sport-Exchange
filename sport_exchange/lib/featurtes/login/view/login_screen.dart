@@ -11,7 +11,7 @@ import 'package:sport_exchange/router/router.dart';
 
 @RoutePage()
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key, this.header}) : super(key: key);
+  const LoginScreen({super.key, this.header});
 
   final String? header;
 

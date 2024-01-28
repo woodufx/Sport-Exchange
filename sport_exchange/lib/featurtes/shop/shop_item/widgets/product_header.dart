@@ -3,12 +3,12 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class ProductHeader extends StatelessWidget {
   const ProductHeader({
-    Key? key,
+    super.key,
     required this.productName,
     required this.categoryName,
     required this.price,
     this.isLarge,
-  }) : super(key: key);
+  });
 
   final String productName;
   final String categoryName;

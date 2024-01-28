@@ -10,7 +10,7 @@ import '../../orders/bloc/order_bloc.dart';
 
 @RoutePage()
 class ShopCardScreen extends StatelessWidget {
-  const ShopCardScreen({Key? key}) : super(key: key);
+  const ShopCardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

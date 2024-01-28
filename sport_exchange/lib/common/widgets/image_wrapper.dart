@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class ImageWrapper extends StatelessWidget {
   const ImageWrapper(
-      {Key? key, required this.aspectRatio, required this.imageUrl})
-      : super(key: key);
+      {super.key, required this.aspectRatio, required this.imageUrl});
 
   final double aspectRatio;
   final String imageUrl;

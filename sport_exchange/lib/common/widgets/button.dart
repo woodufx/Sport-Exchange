@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 
 class Button extends StatefulWidget {
-  const Button({Key? key, required this.onPressed, required this.text})
-      : super(key: key);
+  const Button({super.key, required this.onPressed, required this.text});
+
   final VoidCallback onPressed;
   final String text;
 
   @override
-  _ButtonState createState() => _ButtonState();
+  State<Button> createState() => _ButtonState();
 }
 
 class _ButtonState extends State<Button> {

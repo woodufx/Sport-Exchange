@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 
 class ArticleCategory extends StatelessWidget {
-  const ArticleCategory({Key? key, required this.name}) : super(key: key);
+  const ArticleCategory({super.key, required this.name});
 
   final int name;
 

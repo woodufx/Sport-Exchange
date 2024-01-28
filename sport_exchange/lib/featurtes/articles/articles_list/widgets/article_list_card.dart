@@ -6,7 +6,7 @@ import 'package:sport_exchange/featurtes/articles/models/article_model.dart';
 import 'package:sport_exchange/router/router.dart';
 
 class ArticleListCard extends StatelessWidget {
-  const ArticleListCard({Key? key, required this.article}) : super(key: key);
+  const ArticleListCard({super.key, required this.article});
   final Article article;
 
   @override

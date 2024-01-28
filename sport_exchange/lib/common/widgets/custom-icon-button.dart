@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 
 class CustomIconButton extends StatelessWidget {
-  const CustomIconButton({Key? key, required this.buttonIcon, this.onTap})
-      : super(key: key);
+  const CustomIconButton({super.key, required this.buttonIcon, this.onTap});
   final Icon buttonIcon;
   final VoidCallback? onTap;
 

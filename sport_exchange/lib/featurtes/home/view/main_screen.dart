@@ -1,14 +1,13 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sport_exchange/featurtes/home/widgets/widget.dart';
 import 'package:sport_exchange/featurtes/shop-card/bloc/bucket_bloc.dart';
 import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';
 
-import '/featurtes/home/widgets/widget.dart';
-
 @RoutePage()
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();

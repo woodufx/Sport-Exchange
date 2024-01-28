@@ -3,12 +3,12 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class LoginInput extends StatefulWidget {
   const LoginInput({
-    Key? key,
+    super.key,
     required this.placeholder,
     this.obscureText,
     required this.onFocusChanged,
     required this.controller,
-  }) : super(key: key);
+  });
 
   final String placeholder;
   final bool? obscureText;

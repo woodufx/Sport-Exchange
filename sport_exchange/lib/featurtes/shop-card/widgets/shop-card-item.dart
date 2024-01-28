@@ -6,9 +6,9 @@ import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop-card/bloc/bucket_bloc.dart';
 
 class ShopCardItem extends StatelessWidget {
-  ShopCardItem({super.key, required this.isChecked, required this.item});
+  const ShopCardItem({super.key, required this.isChecked, required this.item});
 
-  BucketModel item;
+  final BucketModel item;
   final bool isChecked;
 
   @override

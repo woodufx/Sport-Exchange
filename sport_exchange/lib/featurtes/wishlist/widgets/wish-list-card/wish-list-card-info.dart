@@ -3,8 +3,7 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class WishListCardInfo extends StatelessWidget {
   const WishListCardInfo(
-      {Key? key, required this.itemName, required this.price})
-      : super(key: key);
+      {super.key, required this.itemName, required this.price});
 
   final String itemName;
   final int price;

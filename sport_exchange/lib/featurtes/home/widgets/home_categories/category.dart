@@ -3,11 +3,11 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class Category extends StatelessWidget {
   const Category({
-    Key? key,
+    super.key,
     required this.categoryName,
     required this.categoryIcon,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String categoryName;
   final IconData categoryIcon;

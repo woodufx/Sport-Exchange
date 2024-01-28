@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_exchange/featurtes/home/widgets/home_categories/category.dart';
 
 class CategoryList extends StatelessWidget {
-  const CategoryList({Key? key}) : super(key: key);
+  const CategoryList({super.key});
 
   @override
   Widget build(BuildContext context) {

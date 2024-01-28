@@ -6,9 +6,9 @@ import 'package:sport_exchange/router/router.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
-    Key? key,
+    super.key,
     required this.product,
-  }) : super(key: key);
+  });
 
   final ProductModel product;
 

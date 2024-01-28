@@ -5,10 +5,10 @@ class PromoCodeBanner extends StatelessWidget {
   final EdgeInsets padding;
 
   const PromoCodeBanner({
-    Key? key,
+    super.key,
     required this.imagePath,
     this.padding = const EdgeInsets.only(right: 6),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

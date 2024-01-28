@@ -4,10 +4,10 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class CustomBottomAppBar extends StatelessWidget {
   const CustomBottomAppBar({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onTabChange,
-  }) : super(key: key);
+  });
 
   final int selectedIndex;
   final ValueChanged<int> onTabChange;

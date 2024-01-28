@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NavIcon extends StatefulWidget {
-  const NavIcon({Key? key, required this.icon, required this.routeTo})
-      : super(key: key);
+  const NavIcon({super.key, required this.icon, required this.routeTo});
 
   final IconData icon;
   final String routeTo;

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductImage extends StatelessWidget {
-  const ProductImage({Key? key, required this.imageUrl, this.hasBorders})
-      : super(key: key);
+  const ProductImage({super.key, required this.imageUrl, this.hasBorders});
   final String imageUrl;
   final bool? hasBorders;
 

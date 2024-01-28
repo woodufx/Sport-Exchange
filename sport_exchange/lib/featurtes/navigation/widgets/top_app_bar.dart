@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 
 class TopAppBar extends StatelessWidget {
-  const TopAppBar({Key? key}) : super(key: key);
+  const TopAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
