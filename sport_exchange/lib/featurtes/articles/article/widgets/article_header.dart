@@ -3,11 +3,10 @@ import 'package:sport_exchange/featurtes/articles/article/widgets/article_catego
 
 class ArticleHeader extends StatelessWidget {
   const ArticleHeader(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.date,
-      required this.categories})
-      : super(key: key);
+      required this.categories});
 
   final String name;
   final String date;

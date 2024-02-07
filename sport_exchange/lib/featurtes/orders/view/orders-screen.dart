@@ -4,7 +4,7 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 @RoutePage()
 class OrdersScreen extends StatelessWidget {
-  const OrdersScreen({Key? key}) : super(key: key);
+  const OrdersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

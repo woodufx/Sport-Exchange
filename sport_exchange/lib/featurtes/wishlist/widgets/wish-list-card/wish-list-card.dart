@@ -9,7 +9,7 @@ import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';
 import 'package:sport_exchange/featurtes/wishlist/widgets/wish-list-card/wish-list-card-info.dart';
 
 class WishListCard extends StatefulWidget {
-  const WishListCard({Key? key, required this.product}) : super(key: key);
+  const WishListCard({super.key, required this.product});
   final ProductModel product;
 
   @override

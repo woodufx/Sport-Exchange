@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/content_model.dart';
@@ -8,14 +8,14 @@ import 'package:sport_exchange/api/models/transaction_model.dart';
 import 'package:sport_exchange/featurtes/profile/bloc/profile_bloc.dart';
 
 part 'transaction_event.dart';
-
 part 'transaction_state.dart';
 
 class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
   final RestClient restClient;
   final ProfileBloc profileBloc;
 
-  TransactionBloc({required this.restClient, required this.profileBloc}) : super(TransactionInitial()) {
+  TransactionBloc({required this.restClient, required this.profileBloc})
+      : super(TransactionInitial()) {
     on<TransactionGetEvent>(_onTransactionGet);
     on<TransactionTopUpEvent>(_onTransactionTopUpEvent);
   }

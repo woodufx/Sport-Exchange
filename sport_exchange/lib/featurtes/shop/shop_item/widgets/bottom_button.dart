@@ -4,12 +4,11 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class BottomButton extends StatelessWidget {
   const BottomButton(
-      {Key? key,
+      {super.key,
       this.onAddToCardPressed,
       this.onFavouritesPressed,
       required this.isActiveButton,
-      required this.isFavourite})
-      : super(key: key);
+      required this.isFavourite});
   final bool isFavourite;
   final bool isActiveButton;
   final VoidCallback? onAddToCardPressed;

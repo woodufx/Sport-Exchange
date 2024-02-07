@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/bucket_model.dart';
 import 'package:sport_exchange/api/models/content_model.dart';
 
 part 'bucket_event.dart';
-
 part 'bucket_state.dart';
 
 class BucketBloc extends Bloc<BucketEvent, BucketState> {
@@ -72,7 +71,8 @@ class BucketBloc extends Bloc<BucketEvent, BucketState> {
       emit(BucketClearLoading());
       await restClient.clearBucket();
       emit(BucketClearLoaded());
-      emit(BucketLoaded({} as ContentModel<List<BucketModel>>));
+      var empty = ContentModel<List<BucketModel>>(content: []);
+      emit(BucketLoaded(empty));
     } catch (e) {
       emit(BucketClearFailure(e));
     }

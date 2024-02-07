@@ -1,20 +1,17 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/bucket_model.dart';
 import 'package:sport_exchange/api/models/product_model.dart';
 import 'package:sport_exchange/api/models/wishlist_model.dart';
 import 'package:sport_exchange/common/widgets/appbar.dart';
-import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop-card/bloc/bucket_bloc.dart';
+import 'package:sport_exchange/featurtes/shop/shop_item/widgets/widgets.dart';
 import 'package:sport_exchange/featurtes/wishlist/bloc/wishlist_bloc.dart';
-
-import '/featurtes/shop/shop_item/widgets/widgets.dart';
 
 @RoutePage()
 class ShopItemScreen extends StatefulWidget {
-  const ShopItemScreen({Key? key, required this.product}) : super(key: key);
+  const ShopItemScreen({super.key, required this.product});
   final ProductModel product;
 
   @override

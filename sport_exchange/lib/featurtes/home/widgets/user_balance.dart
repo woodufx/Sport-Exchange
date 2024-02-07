@@ -4,7 +4,7 @@ import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/profile/bloc/profile_bloc.dart';
 
 class UserBalance extends StatefulWidget {
-  const UserBalance({Key? key}) : super(key: key);
+  const UserBalance({super.key});
 
   @override
   State<UserBalance> createState() => _UserBalanceState();

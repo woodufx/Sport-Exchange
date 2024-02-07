@@ -14,17 +14,17 @@ class ProductModel {
   final int category;
   final List<String> sizes;
 
-  const ProductModel(
-      {required this.id,
-        required this.name,
-        required this.description,
-        required this.pictureUrls,
-        required this.price,
-        required this.ratingPercent,
-        required this.ratingNumber,
-        required this.category,
-        required this.sizes,
-      });
+  const ProductModel({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.pictureUrls,
+    required this.price,
+    required this.ratingPercent,
+    required this.ratingNumber,
+    required this.category,
+    required this.sizes,
+  });
 
   factory ProductModel.fromJson(Map<String, dynamic> json) =>
       _$ProductModelFromJson(json);

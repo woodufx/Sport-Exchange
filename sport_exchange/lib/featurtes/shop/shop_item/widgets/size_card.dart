@@ -3,11 +3,10 @@ import 'package:sport_exchange/constants/app_colors.dart';
 
 class SizeCard extends StatelessWidget {
   const SizeCard(
-      {Key? key,
+      {super.key,
       required this.size,
       required this.isSelected,
-      required this.onSizeSelect})
-      : super(key: key);
+      required this.onSizeSelect});
 
   final String size;
   final bool isSelected;

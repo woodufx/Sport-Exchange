@@ -1,13 +1,12 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:sport_exchange/api/api.dart';
 import 'package:sport_exchange/api/models/content_model.dart';
 import 'package:sport_exchange/api/models/order_model.dart';
 
 part 'order_event.dart';
-
 part 'order_state.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {

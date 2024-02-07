@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sport_exchange/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key, required this.currentRouteName})
-      : super(key: key);
+  const CustomAppBar({super.key, required this.currentRouteName});
 
   final String currentRouteName;
 

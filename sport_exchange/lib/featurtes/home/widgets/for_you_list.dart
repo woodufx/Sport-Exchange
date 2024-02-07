@@ -5,7 +5,7 @@ import 'package:sport_exchange/featurtes/shop/shop_item/widgets/shop_card.dart';
 import 'package:sport_exchange/featurtes/shop/shop_list/bloc/shop_item_bloc.dart';
 
 class ForYouList extends StatefulWidget {
-  const ForYouList({Key? key}) : super(key: key);
+  const ForYouList({super.key});
 
   @override
   State<ForYouList> createState() => _ForYouListState();
@@ -33,8 +33,7 @@ class _ForYouListState extends State<ForYouList> {
                 ),
           ),
           const SizedBox(height: 16),
-          BlocBuilder<ShopItemBloc, ShopItemState>(
-              builder: (context, state) {
+          BlocBuilder<ShopItemBloc, ShopItemState>(builder: (context, state) {
             if (state is ShopItemLoaded) {
               final products = state.products.content;
               return GridView.builder(

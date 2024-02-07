@@ -5,7 +5,7 @@ import 'package:sport_exchange/featurtes/shop/shop_item/widgets/product_image.da
 import 'package:sport_exchange/helpers/mouse_dragable.dart';
 
 class ImageCarousel extends StatelessWidget {
-  ImageCarousel({Key? key, required this.imageUrls}) : super(key: key);
+  ImageCarousel({super.key, required this.imageUrls});
   final _controller = PageController();
   final List<String> imageUrls;
 

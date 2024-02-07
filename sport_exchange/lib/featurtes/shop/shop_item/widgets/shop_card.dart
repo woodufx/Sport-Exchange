@@ -6,16 +6,17 @@ import 'package:sport_exchange/router/router.dart';
 
 class ShopCard extends StatelessWidget {
   const ShopCard({
-    Key? key,
+    super.key,
     required this.product,
-  }) : super(key: key);
+  });
 
   final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {AutoRouter.of(context).push(ShopItemRoute(product: product))},
+      onTap: () =>
+          {AutoRouter.of(context).push(ShopItemRoute(product: product))},
       borderRadius: BorderRadius.circular(10),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         ClipRRect(
@@ -32,7 +33,9 @@ class ShopCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         ProductHeader(
-            productName: product.name, categoryName: 'Беговые кроссовки', price: product.price),
+            productName: product.name,
+            categoryName: 'Беговые кроссовки',
+            price: product.price),
       ]),
     );
   }

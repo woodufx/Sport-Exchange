@@ -6,9 +6,11 @@ import 'package:sport_exchange/constants/app_colors.dart';
 import 'package:sport_exchange/featurtes/shop-card/bloc/bucket_bloc.dart';
 import 'package:sport_exchange/featurtes/shop-card/widgets/shop-card-item.dart';
 
+import '../../orders/bloc/order_bloc.dart';
+
 @RoutePage()
 class ShopCardScreen extends StatelessWidget {
-  const ShopCardScreen({Key? key}) : super(key: key);
+  const ShopCardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +47,16 @@ class ShopCardScreen extends StatelessWidget {
           int totalElements = 0;
           int sum = 0;
           if (state is BucketLoaded) {
-            totalElements = state.bucket.content.length;
-            sum = state.bucket.content
-                .map((item) => item.amount * item.product.price)
-                .reduce((value, element) => value + element);
+            totalElements = 0;
+            for (var it = 0; it < state.bucket.content.length; it += 1) {
+              totalElements += state.bucket.content[it].amount;
+            }
+
+            sum = 0;
+            for (var it = 0; it < state.bucket.content.length; it += 1) {
+              var item = state.bucket.content[it];
+              sum += item.amount * item.product.price;
+            }
           }
           return BottomAppBar(
             height: 90,
@@ -69,12 +77,17 @@ class ShopCardScreen extends StatelessWidget {
                 overlayColor:
                     MaterialStateProperty.all(AppColors.buttonHighlight),
               ),
-              onPressed: () => {},
+              onPressed: () => {
+                BlocProvider.of<OrderBloc>(context)
+                    .add(const OrderCreateEvent()),
+                BlocProvider.of<BucketBloc>(context)
+                    .add(const BucketClearEvent()),
+              },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Заказать $totalElements вещей'.toUpperCase(),
+                  Text('Заказать $totalElements товаров'.toUpperCase(),
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
